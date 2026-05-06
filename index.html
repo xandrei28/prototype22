@@ -53,7 +53,7 @@
 
   /* Bottom Nav */
   .bnav{position:absolute;bottom:0;left:0;right:0;height:84px;background:rgba(10,14,20,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--brd);display:flex;align-items:flex-start;justify-content:space-around;padding:8px 2px 0;z-index:100}
-  .nb{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;color:var(--tx3);cursor:pointer;padding:6px 4px;border-radius:12px;transition:all .2s;min-width:60px;font-family:'DM Sans'}
+  .nb{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;color:var(--tx3);cursor:pointer;padding:6px 2px;border-radius:12px;transition:all .2s;min-width:48px;font-family:'DM Sans'}
   .nb.on{color:var(--gold)}
   .nb svg{width:24px;height:24px}
   .nb span{font-size:10px;font-weight:700;letter-spacing:.2px}
@@ -851,16 +851,49 @@
     <div class="log-entry"><div class="log-dot" style="background:var(--purp)"></div><div class="fg"><div style="font-size:13px;font-weight:600">Cerere acces trimisă — Gheorghiu M.</div><div style="font-size:11px;color:var(--tx3)">Analize hepatice · În așteptare</div></div><div class="log-time">Ieri</div></div>
   </div>
 
-  <div class="slbl">Securitate & Wallet</div>
-  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">🔐</div><div class="hub-text"><h3>Autentificare biometrică</h3><p>Face ID activat · Semnare pe fiecare acțiune</p></div><div class="hub-arrow">→</div></div>
-  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">🔑</div><div class="hub-text"><h3>Cheie privată & backup</h3><p>Wallet securizat · Backup criptat</p></div><div class="hub-arrow">→</div></div>
+  <div class="slbl">Statistici activitate</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">📊</div><div class="hub-text"><h3>Statistici activitate</h3><p>Pacienți tratați, documente semnate, externări</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="ib ib-gold mt16"><span style="font-size:16px">🔗</span><span>Blockchain: MultiversX Sovereign · Bloc #4,893,412 · ✓ Sincronizat</span></div>
+</div>
+
+<!-- ═══ 6. CONFIGURĂRI ═══ -->
+<div class="scr" id="d_s-config">
+  <h2 class="stitle">Configurări</h2>
+  <p class="ssub">Securitate, recuperare cont și setări aplicație</p>
+
+  <div class="slbl">Securitate & Autentificare</div>
+  <div class="hub-card" onclick="d_reqSign('Setări biometrie','Modifică metoda de autentificare.')"><div class="hub-icon" style="background:var(--ok-s)">🔐</div><div class="hub-text"><h3>Autentificare biometrică</h3><p>Face ID activat · Semnare pe fiecare acțiune</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card" onclick="d_reqSign('Schimbă PIN','Introdu PIN-ul curent pentru a continua.')"><div class="hub-icon" style="background:var(--blue-s)">🔢</div><div class="hub-text"><h3>PIN de siguranță</h3><p>PIN alternativ când biometria nu funcționează</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card" onclick="d_reqSign('Sesiuni active','Autentificare necesară.')"><div class="hub-icon" style="background:var(--purp-s)">📱</div><div class="hub-text"><h3>Dispozitive & sesiuni active</h3><p>1 dispozitiv activ · iPhone 15 Pro</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Recuperare & Backup</div>
+  <div class="ib ib-err"><span style="font-size:16px">⚠️</span><span>Salvează fraza de recuperare într-un loc sigur. Fără ea, contul <strong>nu poate fi recuperat</strong>.</span></div>
+  <div class="hub-card" onclick="d_reqSign('Afișează fraza de recuperare','12 cuvinte — nu le partaja nimănui.')"><div class="hub-icon" style="background:var(--gold-soft)">🗝️</div><div class="hub-text"><h3>Frază de recuperare (Seed)</h3><p>12 cuvinte · Ultima verificare: 01.03.2026</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card" onclick="d_reqSign('Cheie privată','Exportă cheia privată criptată.')"><div class="hub-icon" style="background:var(--blue-s)">🔑</div><div class="hub-text"><h3>Cheie privată & export</h3><p>Wallet securizat · Backup criptat</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">☁️</div><div class="hub-text"><h3>Backup automat iCloud</h3><p>Activat · Ultimul backup: azi, 07:00</p></div><div class="toggle on"></div></div>
+
+  <div class="slbl">Blocare & Urgență</div>
+  <div class="ib ib-blue"><span style="font-size:16px">ℹ️</span><span>Dacă telefonul este furat, blochează contul imediat. Datele medicale rămân sigure pe blockchain.</span></div>
+  <div class="hub-card" onclick="d_reqSign('Blochează contul','Contul va fi dezactivat pe toate dispozitivele. Necesită fraza de recuperare pentru reactivare.')"><div class="hub-icon" style="background:var(--err-s)">🚫</div><div class="hub-text"><h3>Blochează contul</h3><p>Dezactivare imediată pe toate dispozitivele</p></div><div class="hub-arrow" style="color:var(--err)">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--warn-s)">🔒</div><div class="hub-text"><h3>Auto-lock</h3><p>Blocare automată după 5 minute de inactivitate</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--purp-s)">📍</div><div class="hub-text"><h3>Restricție locație</h3><p>Permite acces doar din spital (GPS)</p></div><div class="toggle"></div></div>
 
   <div class="slbl">Configurare clinică</div>
   <div class="hub-card"><div class="hub-icon" style="background:var(--purp-s)">🏥</div><div class="hub-text"><h3>Secție & saloane</h3><p>Configurare saloane, paturi, secție activă</p></div><div class="hub-arrow">→</div></div>
   <div class="hub-card"><div class="hub-icon" style="background:var(--warn-s)">🔔</div><div class="hub-text"><h3>Notificări</h3><p>Alerte critice, rezultate noi, cereri acces</p></div><div class="hub-arrow">→</div></div>
-  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">📊</div><div class="hub-text"><h3>Statistici activitate</h3><p>Pacienti tratați, documente semnate, externări</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Audit & Transparență</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">📋</div><div class="hub-text"><h3>Jurnal complet de activitate</h3><p>Toate acțiunile semnate — audit blockchain</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">✅</div><div class="hub-text"><h3>Verificare integritate cont</h3><p>Ultima verificare: azi · Totul OK</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Cont</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">🌐</div><div class="hub-text"><h3>Limbă</h3><p>Română</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--bg-surf)">📄</div><div class="hub-text"><h3>Termeni și condiții</h3><p>GDPR · Politica de confidențialitate</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card" onclick="d_reqSign('Dezactivare cont','Această acțiune este ireversibilă. Datele rămân pe blockchain.')"><div class="hub-icon" style="background:var(--err-s)">🗑️</div><div class="hub-text"><h3 style="color:var(--err)">Dezactivare cont</h3><p>Ireversibil · Datele rămân pe blockchain</p></div><div class="hub-arrow" style="color:var(--err)">→</div></div>
 
   <div class="ib ib-gold mt16"><span style="font-size:16px">🔗</span><span>Blockchain: MultiversX Sovereign · Bloc #4,893,412 · ✓ Sincronizat</span></div>
+  <div style="font-size:11px;color:var(--tx3);text-align:center;margin-top:12px">Anamnesis v1.0.0 · Build 2026.04.07</div>
 </div>
 
     </div><!-- /sa -->
@@ -903,6 +936,7 @@
       <button class="nb" data-nav="program" onclick="d_go('program')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Program</span></button>
       <button class="nb" data-nav="sistem" onclick="d_go('sistem')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><span>Sistem</span></button>
       <button class="nb" data-nav="profil" onclick="d_go('profil')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profil</span></button>
+      <button class="nb" data-nav="config" onclick="d_go('config')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span>Setări</span></button>
     </div>
   </div>
 
@@ -1413,6 +1447,39 @@
   <button class="btn btn-out mt12" onclick="p_reqSign('Editează profilul de urgență','Modificările vor fi semnate biometric.')">✏️ Editează profilul de urgență</button>
 </div>
 
+<!-- PATIENT CONFIGURĂRI -->
+<div class="scr" id="p_s-config">
+  <div class="slbl">Securitate & Autentificare</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">🔐</div><div class="hub-text"><h3>Autentificare biometrică</h3><p>Face ID activat · Requis la fiecare acțiune sensibilă</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">🔢</div><div class="hub-text"><h3>PIN de securitate</h3><p>PIN alternativ configurat · Schimbă PIN-ul</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--purp-s)">📱</div><div class="hub-text"><h3>Dispozitive active</h3><p>1 dispozitiv autorizat · iPhone 15 Pro</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Recuperare & Backup</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--warn-s)">🔑</div><div class="hub-text"><h3>Frază de recuperare</h3><p>12 cuvinte · Vizualizează & verifică backup</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">☁️</div><div class="hub-text"><h3>Backup iCloud</h3><p>Backup criptat activ · Ultimul: azi, 08:30</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Blocare & Urgență</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--err-s)">🚨</div><div class="hub-text"><h3>Blochează contul</h3><p>Blocare imediată — pentru telefon furat sau pierdut</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--warn-s)">⏱️</div><div class="hub-text"><h3>Auto-lock</h3><p>Blocare automată după 5 minute de inactivitate</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Confidențialitate</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">👁️</div><div class="hub-text"><h3>Vizibilitate dosar medical</h3><p>Controlează ce medici văd datele tale</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--purp-s)">📋</div><div class="hub-text"><h3>Consimțăminte active</h3><p>3 consimțăminte acordate · Gestionează accesul</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">🔔</div><div class="hub-text"><h3>Notificări</h3><p>Push activat · Alerte medicamente, programări, urgențe</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Audit & Transparență</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--gold-s)">📜</div><div class="hub-text"><h3>Jurnal de accesare</h3><p>Cine ți-a vizualizat dosarul — istoric complet blockchain</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">✅</div><div class="hub-text"><h3>Verificare integritate</h3><p>Verifică dacă datele tale medicale sunt intacte pe blockchain</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Cont</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--bg-surf)">🌐</div><div class="hub-text"><h3>Limbă</h3><p>Română</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--bg-surf)">📄</div><div class="hub-text"><h3>Termeni & GDPR</h3><p>Politica de confidențialitate · Drepturile pacientului</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--err-s)">⛔</div><div class="hub-text"><h3>Dezactivare cont</h3><p>Dezactivează temporar sau șterge permanent contul</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="ib ib-gold mt16"><span style="font-size:16px">🔗</span><span>Blockchain: MultiversX Sovereign · Bloc #4,893,412 · ✓ Sincronizat</span></div>
+  <div style="font-size:11px;color:var(--tx3);text-align:center;margin-top:12px">Anamnesis v1.0.0 · Build 2026.04.07</div>
+</div>
+
     </div><!-- /sa -->
     <div class="bnav">
       <button class="nb on" data-nav="home" onclick="p_go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Acasă</span></button>
@@ -1420,6 +1487,7 @@
       <button class="nb" data-nav="meds" onclick="p_go('meds')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8m-4-4h8"/></svg><span>Medicație</span></button>
       <button class="nb" data-nav="doctors" onclick="p_go('doctors')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg><span>Medici</span></button>
       <button class="nb" data-nav="sos" onclick="p_go('sos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>SOS</span></button>
+      <button class="nb" data-nav="config" onclick="p_go('config')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span>Setări</span></button>
     </div>
   </div>
   <div class="lbl-ext" id="p_lbl">Acasă</div>
@@ -1822,13 +1890,41 @@
     </div>
   </div>
 
-  <div class="slbl">Securitate & Audit</div>
-  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">🔐</div><div class="hub-text"><h3>Autentificare biometrică</h3><p>Face ID activat · Semnare pe fiecare acțiune</p></div><div class="hub-arrow">→</div></div>
-  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">📊</div><div class="hub-text"><h3>Jurnal activitate</h3><p>Administrări, monitorizări, accesări — audit complet</p></div><div class="hub-arrow">→</div></div>
-
   <div class="ib ib-teal mt16"><span style="font-size:16px">🔗</span><span>Blockchain: MultiversX Sovereign · Bloc #4,893,412 · ✓ Sincronizat</span></div>
 </div>
 
+<!-- NURSE CONFIGURĂRI -->
+<div class="scr" id="n_s-config">
+  <div class="slbl">Securitate & Autentificare</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">🔐</div><div class="hub-text"><h3>Autentificare biometrică</h3><p>Face ID activat · Semnare pe fiecare acțiune</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">🔢</div><div class="hub-text"><h3>PIN de securitate</h3><p>PIN alternativ configurat · Schimbă PIN-ul</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--purp-s)">📱</div><div class="hub-text"><h3>Dispozitive & Sesiuni active</h3><p>1 dispozitiv autorizat · 1 sesiune activă</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Recuperare & Backup</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--warn-s)">🔑</div><div class="hub-text"><h3>Frază de recuperare</h3><p>12 cuvinte · Vizualizează & verifică backup</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--blue-s)">☁️</div><div class="hub-text"><h3>Backup iCloud</h3><p>Backup criptat activ · Ultimul: azi, 06:45</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Blocare & Urgență</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--err-s)">🚨</div><div class="hub-text"><h3>Blochează contul</h3><p>Blocare imediată — pentru telefon furat sau pierdut</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--warn-s)">⏱️</div><div class="hub-text"><h3>Auto-lock</h3><p>Blocare automată după 3 minute de inactivitate</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">📍</div><div class="hub-text"><h3>Restricție GPS</h3><p>Cont activ doar în locația spitalului</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Configurare Tură</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--teal-s)">🔔</div><div class="hub-text"><h3>Notificări tură</h3><p>Alerte administrare, monitorizare, predare tură</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--purp-s)">⏰</div><div class="hub-text"><h3>Program implicit</h3><p>Tură 12h · Schimbă tipul de tură</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Audit & Transparență</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--gold-s)">📜</div><div class="hub-text"><h3>Jurnal complet de activitate</h3><p>Administrări, monitorizări, accesări — audit blockchain</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--ok-s)">✅</div><div class="hub-text"><h3>Verificare integritate cont</h3><p>Hash-check blockchain · Ultima verificare: azi</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="slbl">Cont</div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--bg-surf)">🌐</div><div class="hub-text"><h3>Limbă</h3><p>Română</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--bg-surf)">📄</div><div class="hub-text"><h3>Termeni & GDPR</h3><p>Politica de confidențialitate · Regulament intern</p></div><div class="hub-arrow">→</div></div>
+  <div class="hub-card"><div class="hub-icon" style="background:var(--err-s)">⛔</div><div class="hub-text"><h3>Dezactivare cont</h3><p>Dezactivează temporar sau șterge permanent contul</p></div><div class="hub-arrow">→</div></div>
+
+  <div class="ib ib-teal mt16"><span style="font-size:16px">🔗</span><span>Blockchain: MultiversX Sovereign · Bloc #4,893,412 · ✓ Sincronizat</span></div>
+  <div style="font-size:11px;color:var(--tx3);text-align:center;margin-top:12px">Anamnesis v1.0.0 · Build 2026.04.07</div>
+</div>
 
     </div><!-- /sa -->
 
@@ -1853,6 +1949,10 @@
       <button class="nb" data-nav="tura" onclick="n_go('tura')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span>Tură</span>
+      </button>
+      <button class="nb" data-nav="config" onclick="n_go('config')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span>Setări</span>
       </button>
     </div>
   </div>
@@ -1929,7 +2029,7 @@ function makeNav(prefix, labels, scrollId, lblId, scopeSelector) {
 <script>
 (function() {
 
-var navLabels = {home:'Acasă',patients:'Pacienții Mei',program:'Program',sistem:'Sistem Anamnesis',profil:'Profil & Jurnal'};
+var navLabels = {home:'Acasă',patients:'Pacienții Mei',program:'Program',sistem:'Sistem Anamnesis',profil:'Profil & Jurnal',config:'Configurări'};
 var nav = makeNav('d', navLabels, 'd_scroll-area', 'd_lbl', '#doctor-app');
 var bio = makeBio('d', 'var(--gold)', 'medic', 'b-gold');
 
@@ -2447,8 +2547,8 @@ window.d_closeFOCG = d_closeFOCG;
 <script>
 (function() {
 
-var navLabels = {home:'Acasă',history:'Istoric Medical',lab:'Analize de Sânge',rx:'Rețetă Digitală',meds:'Medicația Mea',doctors:'Medicii Mei',sos:'Profil Urgență — TierGuard™'};
-var navMap = {home:'home',history:'history',lab:'history',rx:'history',meds:'meds',doctors:'doctors',sos:'sos'};
+var navLabels = {home:'Acasă',history:'Istoric Medical',lab:'Analize de Sânge',rx:'Rețetă Digitală',meds:'Medicația Mea',doctors:'Medicii Mei',sos:'Profil Urgență — TierGuard™',config:'Configurări'};
+var navMap = {home:'home',history:'history',lab:'history',rx:'history',meds:'meds',doctors:'doctors',sos:'sos',config:'config'};
 var nav = makeNav('p', navLabels, 'p_scroll-area', 'p_lbl', '#patient-app');
 var bio = makeBio('p', 'var(--gold)', 'pacient', 'b-blue');
 
@@ -2516,7 +2616,7 @@ window.p_noSign = p_noSign;
 <script>
 (function() {
 
-var navLabels = {home:'Acasă',patients:'Pacienți Secție',meds:'Administrare Medicație',monitor:'Monitorizare',tura:'Tură & Predare'};
+var navLabels = {home:'Acasă',patients:'Pacienți Secție',meds:'Administrare Medicație',monitor:'Monitorizare',tura:'Tură & Predare',config:'Configurări'};
 var nav = makeNav('n', navLabels, 'n_scroll-area', 'n_lbl', '#nurse-app');
 var bio = makeBio('n', 'var(--teal)', 'asistentă', 'b-teal');
 
